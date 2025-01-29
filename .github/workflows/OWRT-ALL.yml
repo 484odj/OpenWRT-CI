@@ -1,5 +1,5 @@
 #CI项目
-#name: OWRT-ALL
+name: OWRT-ALL
 
 #CI计划
 on:
