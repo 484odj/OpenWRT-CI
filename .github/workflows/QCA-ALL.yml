@@ -37,6 +37,23 @@ jobs:
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
 
+    #步骤定义
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 清理磁盘空间
+      - name: Free up disk space
+        run: |
+          echo "Start freeing up disk space"
+          sudo rm -rf /usr/share/dotnet        # 删除 .NET SDK
+          sudo rm -rf /usr/local/lib/android  # 删除 Android SDK
+          sudo rm -rf /opt/ghc               # 删除 GHC（Haskell）
+          sudo apt-get clean                 # 清理 apt 缓存
+          sudo apt-get autoremove -y         # 删除未使用的依赖
+          df -h                              # 查看剩余磁盘空间
+
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
     with:
