@@ -62,6 +62,26 @@ jobs:
     steps:
       - name: Checkout Projects
         uses: actions/checkout@main
+- name: Expand Disk Space
+  run: |
+    echo "当前磁盘使用情况："
+    df -h
+
+    echo "创建新的构建目录到 /mnt 更大的磁盘空间"
+    sudo mkdir -p /mnt/openwrt
+    sudo chown -R $USER:$USER /mnt/openwrt
+
+    echo "移动 OpenWrt 构建目录到 /mnt/openwrt"
+    mv build_dir /mnt/openwrt/build_dir
+    mv staging_dir /mnt/openwrt/staging_dir
+
+    echo "创建符号链接指向新存储"
+    ln -s /mnt/openwrt/build_dir build_dir
+    ln -s /mnt/openwrt/staging_dir staging_dir
+
+    echo "扩容完成，新的磁盘使用情况："
+    df -h
+
 
       - name: Free Disk Space
         uses: FirelightFlagboy/gh-runner-free-disk-space@main
