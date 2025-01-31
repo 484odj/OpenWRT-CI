@@ -127,7 +127,7 @@ CONFIG_PACKAGE_luci-app-dockerman=y
 #ddns go
 CONFIG_PACKAGE_luci-app-ddns-go=n
 #openclash
-CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-openclash=n
 #ttyd
 CONFIG_PACKAGE_luci-app-ttyd=n
 #qbittorrent
