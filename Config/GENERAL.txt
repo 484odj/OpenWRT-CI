@@ -132,4 +132,6 @@ CONFIG_PACKAGE_luci-app-openclash=n
 CONFIG_PACKAGE_luci-app-ttyd=n
 #qbittorrent
 CONFIG_PACKAGE_luci-app-qbittorrent=n
+#北京时区
+CONFIG_PACKAGE_zoneinfo-asia=y
 #以上为自行增加的插件及组件
